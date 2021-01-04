@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'application#index'
+  devise_scope :user do
+    root 'devise/registrations#new'
+  end
 
-  devise_for :users, path: '', path_names: {
-    sign_in: 'login',
-    sign_out: 'logout',
-    sign_up: 'signup'
-  }
+  devise_for :users, path: ''
 end
