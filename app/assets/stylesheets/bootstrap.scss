@@ -2,6 +2,7 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
 
 // Optional
 @import "bootstrap/scss/root";
@@ -33,5 +34,5 @@
 @import "bootstrap/scss/popover";
 @import "bootstrap/scss/carousel";
 @import "bootstrap/scss/spinners";
-@import "bootstrap/scss/utilities";
 @import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
