@@ -16,14 +16,12 @@
           <input type="password" class="form-control me-2" id="password" placeholder="Password" aria-label="Password">
         </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="col-12">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="remember_me">
-              <label class="form-check-label text-white" for="remember_me">Remember me</label>
-            </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember_me">
+            <label class="form-check-label text-white" for="remember_me">Remember me</label>
           </div>
-        <% end %>
+        </div>
 
         <div class="col-md-12">
           <button class="btn btn-outline-secondary text-white text-nowrap" type="submit">Sign in</button>
