@@ -1,1 +1,119 @@
-home
+<div class="d-flex justify-content-center align-items-center">
+  <div class="m-5">
+    <h1 class="text-center m-0">
+      <strong><%= Rails.configuration.title %></strong> helps you connect and share with people all
+      over the world.
+    </h1>
+  </div>
+
+  <div class="col-5 m-5 shadow">
+    <h4 class="text-center bg-primary text-white py-4">Welcome to
+      <%= Rails.configuration.title %></h4>
+
+      <%= form_with url: new_user_registration_path,
+                    method: :post,
+                    local: true,
+                    class: 'p-4' do |form| %>
+        <div class="row p-0 mb-3">
+          <div class="col">
+            <input type="text"
+                   class="form-control"
+                   id="first_name"
+                   placeholder="First Name"
+                   aria-label="First Name">
+          </div>
+
+          <div class="col">
+            <input type="text"
+                   class="form-control"
+                   id="last_name"
+                   placeholder="Last Name"
+                   aria-label="Last Name">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <input type="email"
+                 class="form-control"
+                 id="email"
+                 placeholder="Email"
+                 aria-label="Email">
+        </div>
+
+        <div class="mb-3">
+          <input type="password"
+                 class="form-control me-2"
+                 id="password"
+                 placeholder="Password"
+                 aria-label="Password">
+        </div>
+
+        <div class="mb-3">
+          <input type="password"
+                 class="form-control me-2"
+                 id="password"
+                 placeholder="Password"
+                 aria-label="Password">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Birthday</label>
+
+          <div class="row">
+            <div class="col-4">
+              <select class="form-select" id="month" aria-label="Month">
+                <option selected>Month</option>
+
+                <%= for i in 1..12 do %>
+                  <option value="1"><%= i %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div class="col-4">
+              <select class="form-select" id="day" aria-label="Day">
+                <option selected>Day</option>
+
+                <%= for i in 1..31 do %>
+                  <option value="1"><%= i %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div class="col-4">
+              <select class="form-select" id="year" aria-label="Year">
+                <option selected>Year</option>
+
+                <%=
+                  $min_year = Date.today.year - 120
+                  $max_year = Date.today.year - Rails.configuration.minimum_age
+
+                  for i in ($min_year..$max_year).reverse_each do %>
+                    <option value="1"><%= i %></option>
+                  <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" id="gender" aria-label="Gender">
+            <option selected>Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <%= form.country_select :country_code,
+                                  { include_blank: 'Country' },
+                                  { class: 'form-select' } %>
+        </div>
+
+        <div class="d-grid">
+          <button class="btn-lg btn-primary text-white" type="submit">Sign up</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

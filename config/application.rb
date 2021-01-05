@@ -15,5 +15,8 @@ module SocialNetwork
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.title = "Social Network"
+    config.minimum_age = 16
   end
 end
