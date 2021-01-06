@@ -5,59 +5,56 @@
               scope: resource_name,
               url: registration_path(resource_name),
               method: :post,
+              local: true,
               class: 'p-4' do |form| %>
 
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="mb-3">
-    <input type="text"
-           class="form-control"
-           id="username"
-           placeholder="Username"
-           aria-label="Username">
+    <%= form.text_field :username,
+                        placeholder: 'Username',
+                        class: 'form-control',
+                        'aria-label': 'Username' %>
   </div>
 
   <div class="mb-3">
-    <input type="email"
-           class="form-control"
-           id="email"
-           placeholder="Email"
-           aria-label="Email">
+    <%= form.email_field :email,
+                         placeholder: 'Email',
+                         class: 'form-control',
+                         'aria-label': 'Email' %>
   </div>
 
   <div class="mb-3">
-    <input type="password"
-           class="form-control me-2"
-           id="password"
-           placeholder="Password"
-           aria-label="Password">
+    <%= form.password_field :password,
+                            placeholder: 'Password',
+                            class: 'form-control',
+                            'aria-label': 'Password' %>
   </div>
 
   <div class="mb-3 col-3">
-    <input type="number"
-           min="16"
-           max="120"
-           class="form-control me-2"
-           id="age"
-           placeholder="Age"
-           aria-label="Age">
+    <%= form.number_field :age,
+                          min: 16,
+                          max: 120,
+                          placeholder: 'Age',
+                          class: 'form-control',
+                          'aria-label': 'Age' %>
   </div>
 
   <div class="mb-3">
-    <select class="form-select" id="gender" aria-label="Gender">
-      <option selected>Gender</option>
-      <option value="1">Male</option>
-      <option value="2">Female</option>
-    </select>
+    <%= form.select :gender,
+                    [['Male', 'male'], ['Female', 'female']],
+                    { include_blank: 'Gender' },
+                    class: 'form-select',
+                    'aria-label': 'Gender' %>
   </div>
 
   <div class="mb-3">
     <%= form.country_select :country_code,
                             { include_blank: 'Country' },
-                            { class: 'form-select' } %>
+                            class: 'form-select' %>
   </div>
 
   <div class="d-grid">
-    <button class="btn-lg btn-primary text-white" type="submit">Sign up</button>
+    <%= form.submit 'Sign up', class: 'btn-lg btn-primary text-white' %>
   </div>
 <% end %>
