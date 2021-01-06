@@ -14,22 +14,12 @@
                     method: :post,
                     local: true,
                     class: 'p-4' do |form| %>
-        <div class="row p-0 mb-3">
-          <div class="col">
-            <input type="text"
-                   class="form-control"
-                   id="first_name"
-                   placeholder="First Name"
-                   aria-label="First Name">
-          </div>
-
-          <div class="col">
-            <input type="text"
-                   class="form-control"
-                   id="last_name"
-                   placeholder="Last Name"
-                   aria-label="Last Name">
-          </div>
+        <div class="mb-3">
+          <input type="text"
+                 class="form-control"
+                 id="username"
+                 placeholder="Username"
+                 aria-label="Username">
         </div>
 
         <div class="mb-3">
@@ -48,51 +38,15 @@
                  aria-label="Password">
         </div>
 
-        <div class="mb-3">
-          <input type="password"
-                 class="form-control me-2"
-                 id="password"
-                 placeholder="Password"
-                 aria-label="Password">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Birthday</label>
-
-          <div class="row">
-            <div class="col-4">
-              <select class="form-select" id="month" aria-label="Month">
-                <option selected>Month</option>
-
-                <%= for i in 1..12 do %>
-                  <option value="1"><%= i %></option>
-                <% end %>
-              </select>
-            </div>
-
-            <div class="col-4">
-              <select class="form-select" id="day" aria-label="Day">
-                <option selected>Day</option>
-
-                <%= for i in 1..31 do %>
-                  <option value="1"><%= i %></option>
-                <% end %>
-              </select>
-            </div>
-
-            <div class="col-4">
-              <select class="form-select" id="year" aria-label="Year">
-                <option selected>Year</option>
-
-                <%=
-                  $min_year = Date.today.year - 120
-                  $max_year = Date.today.year - Rails.configuration.minimum_age
-
-                  for i in ($min_year..$max_year).reverse_each do %>
-                    <option value="1"><%= i %></option>
-                  <% end %>
-              </select>
-            </div>
+        <div class="row">
+          <div class="col-4 mb-3">
+            <input type="number"
+                   min="16"
+                   max="120"
+                   class="form-control me-2"
+                   id="age"
+                   placeholder="Age"
+                   aria-label="Age">
           </div>
         </div>
 
