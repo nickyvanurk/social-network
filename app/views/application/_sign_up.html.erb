@@ -1,0 +1,63 @@
+<h4 class="text-center bg-primary text-white py-4">Welcome to
+  <%= Rails.configuration.title %></h4>
+
+<%= form_with model: resource,
+              scope: resource_name,
+              url: registration_path(resource_name),
+              method: :post,
+              class: 'p-4' do |form| %>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="mb-3">
+    <input type="text"
+           class="form-control"
+           id="username"
+           placeholder="Username"
+           aria-label="Username">
+  </div>
+
+  <div class="mb-3">
+    <input type="email"
+           class="form-control"
+           id="email"
+           placeholder="Email"
+           aria-label="Email">
+  </div>
+
+  <div class="mb-3">
+    <input type="password"
+           class="form-control me-2"
+           id="password"
+           placeholder="Password"
+           aria-label="Password">
+  </div>
+
+  <div class="mb-3 col-3">
+    <input type="number"
+           min="16"
+           max="120"
+           class="form-control me-2"
+           id="age"
+           placeholder="Age"
+           aria-label="Age">
+  </div>
+
+  <div class="mb-3">
+    <select class="form-select" id="gender" aria-label="Gender">
+      <option selected>Gender</option>
+      <option value="1">Male</option>
+      <option value="2">Female</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <%= form.country_select :country_code,
+                            { include_blank: 'Country' },
+                            { class: 'form-select' } %>
+  </div>
+
+  <div class="d-grid">
+    <button class="btn-lg btn-primary text-white" type="submit">Sign up</button>
+  </div>
+<% end %>

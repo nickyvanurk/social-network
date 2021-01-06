@@ -7,67 +7,6 @@
   </div>
 
   <div class="col-5 m-5 shadow">
-    <h4 class="text-center bg-primary text-white py-4">Welcome to
-      <%= Rails.configuration.title %></h4>
-
-      <%= form_with url: new_user_registration_path,
-                    method: :post,
-                    local: true,
-                    class: 'p-4' do |form| %>
-        <div class="mb-3">
-          <input type="text"
-                 class="form-control"
-                 id="username"
-                 placeholder="Username"
-                 aria-label="Username">
-        </div>
-
-        <div class="mb-3">
-          <input type="email"
-                 class="form-control"
-                 id="email"
-                 placeholder="Email"
-                 aria-label="Email">
-        </div>
-
-        <div class="mb-3">
-          <input type="password"
-                 class="form-control me-2"
-                 id="password"
-                 placeholder="Password"
-                 aria-label="Password">
-        </div>
-
-        <div class="row">
-          <div class="col-4 mb-3">
-            <input type="number"
-                   min="16"
-                   max="120"
-                   class="form-control me-2"
-                   id="age"
-                   placeholder="Age"
-                   aria-label="Age">
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <select class="form-select" id="gender" aria-label="Gender">
-            <option selected>Gender</option>
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <%= form.country_select :country_code,
-                                  { include_blank: 'Country' },
-                                  { class: 'form-select' } %>
-        </div>
-
-        <div class="d-grid">
-          <button class="btn-lg btn-primary text-white" type="submit">Sign up</button>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: 'sign_up' %>
   </div>
 </div>
