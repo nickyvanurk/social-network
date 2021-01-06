@@ -14,35 +14,37 @@
 
     <div class="collapse navbar-collapse justify-content-end mt-2 mt-lg-0"
          id="navbarSupportedContent">
-      <%= form_with url: new_user_session_path,
+      <%= form_with model: resource,
+                    scope: resource_name,
+                    url: session_path(resource_name),
                     method: :post,
                     local: true,
                     class: 'row row-cols-lg-auto g-3 align-items-center' do |form| %>
         <div class="col-md-12">
-          <input type="email"
-                 class="form-control me-2"
-                 id="email"
-                 placeholder="Email"
-                 aria-label="Email">
+          <%= form.email_field :email,
+                               placeholder: 'Email',
+                               class: 'form-control me-2',
+                               'aria-label': 'Email' %>
         </div>
 
         <div class="col-md-12">
-          <input type="password"
-                 class="form-control me-2"
-                 id="password"
-                 placeholder="Password"
-                 aria-label="Password">
+          <%= form.password_field :password,
+                                  placeholder: 'Password',
+                                  class: 'form-control me-2',
+                                  'aria-label': 'Password' %>
         </div>
 
-        <div class="col-12">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="remember_me">
-            <label class="form-check-label text-white" for="remember_me">Remember me</label>
+        <% if devise_mapping.rememberable? %>
+          <div class="col-12">
+            <div class="form-check">
+              <%= form.check_box :remember_me, class: 'form-check-input' %>
+              <%= form.label :remember_me, class: 'form-check-label text-white' %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <div class="col-md-12">
-          <button class="btn btn-outline-light text-nowrap" type="submit">Sign in</button>
+          <%= form.submit 'Sign in', class: 'btn btn-outline-light text-nowrap' %>
         </div>
       <% end %>
     </div>
